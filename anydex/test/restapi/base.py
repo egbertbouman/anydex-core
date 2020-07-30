@@ -68,6 +68,7 @@ class TestRestApiBase(TestBase):
         mock_ipv8.overlay.settings.single_trade = False
         mock_ipv8.overlay.clearing_policies = []
         mock_ipv8.overlays = [mock_ipv8.overlay]
+        mock_ipv8.configuration = {}
 
         # Start REST API
         self.restapi = RESTManager(mock_ipv8)

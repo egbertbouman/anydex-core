@@ -13,10 +13,12 @@ import os
 import struct  # DO NOT REMOVE AS UNUSED; It is magically used by bitcoinlib
 import sys
 from logging.handlers import RotatingFileHandler
+from pathlib import Path  # DO NOT REMOVE AS UNUSED; It is magically used by bitcoinlib
 
 sys.modules["bitcoinlib.main"] = sys.modules[__name__]
 
 
+DEFAULT_LANGUAGE='english'
 DEFAULT_DOCDIR = None
 DEFAULT_DATABASEDIR = None
 DEFAULT_LOGDIR = None

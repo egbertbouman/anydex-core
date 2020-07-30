@@ -31,6 +31,12 @@ class TestMarketCommunityBase(TestBase):
         for node in self.nodes:
             node.overlay._use_main_thread = True
 
+    async def tearDown(self):
+        for node in self.nodes:
+            for wallet in node.overlay.wallets.values():
+                await wallet.shutdown_task_manager()
+        await super(TestMarketCommunityBase, self).tearDown()
+
     def get_db_location(self):
         return ":memory:"
 

@@ -515,6 +515,8 @@ class MarketCommunity(Community, BlockListener):
         """
         Disable the matchmaker status of this node
         """
+        if self.order_book:
+            self.register_anonymous_task('shutdown_orderbook', self.order_book.shutdown_task_manager)
         self.order_book = None
         self.matching_engine = None
         self.is_matchmaker = False
